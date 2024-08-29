@@ -49,7 +49,7 @@ public class Booking {
     @Column(nullable = false)
     private BookingStatus status;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false, precision = 10)
     private Double totalAmount;
 
     @Column(name = "created_at", nullable = false, updatable = false)

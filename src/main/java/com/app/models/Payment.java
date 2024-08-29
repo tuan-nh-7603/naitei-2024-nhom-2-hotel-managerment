@@ -32,7 +32,7 @@ public class Payment {
     @Column(length = 50)
     private String method;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false, precision = 10)
     private Double amount;
 
     @Enumerated(EnumType.STRING)
