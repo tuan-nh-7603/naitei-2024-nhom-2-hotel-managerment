@@ -33,7 +33,7 @@ public class Room {
     @Column(nullable = false)
     private RoomType type;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false, precision = 10)
     private Double pricePerNight;
 
     @Enumerated(EnumType.STRING)
