@@ -2,32 +2,65 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <!--      layout:decorate="~{/layout/layout-main}">-->
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+            rel="stylesheet"
+    />
     <title>Homepage</title>
-    <style>
-        body {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .content {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 <body>
-<th:block layout:fragment="content">
-    <div class="content container pt-5">
-        <div class="row justify-content-center align-items-start">
-            <div class="col-12 text-center">
-                <h1 class="display-5 mb-5"><strong>"Every journey is a step closer to finding who you truly are."</strong></h1>
-                <p class="lead fs-3 mb-5">We believe in making your travel plans simple and enjoyable.<br>Let's start a new
-                    journey!</p>
-<!--                <a href="/login" class="btn btn-primary btn-lg">Explore - Sleep - Discover</a>-->
-            </div>
+    <nav>
+        <div class="nav_logo">HTHT</div>
+        <ul class="nav-links">
+            <li class="link"><a href="#">Home</a></li>
+            <li class="link"><a href="#">Blog</a></li>
+            <li class="link"><a href="#">Contact Us</a></li>
+            <li class="link"><a href="#">Login</a></li>
+        </ul>
+    </nav>
+<header class="section_container header_container">
+    <div class="header_image_container">
+        <div class="header_content">
+            <h1>Enjoin Your Vacation</h1>
+            <p>Book Hotels and Relax</p>
+        </div>
+        <div class="booking_container">
+            <form>
+                <div class="form_group">
+                    <div class="input_group">
+                        <input type="text">
+                        <label>Location</label>
+                    </div>
+                    <p>Where are you going?</p>
+                </div>
+                <div class="form_group">
+                    <div class="input_group">
+                        <input type="text">
+                        <label>Check in</label>
+                    </div>
+                    <p>Add date</p>
+                </div>
+                <div class="form_group">
+                    <div class="input_group">
+                        <input type="text">
+                        <label>Check out</label>
+                    </div>
+                    <p>Add date</p>
+                </div>
+                <div class="form_group">
+                    <div class="input_group">
+                        <input type="text">
+                        <label>Guest</label>
+                    </div>
+                    <p>Add guest</p>
+                </div>
+               <Button class="btn"><i class="ri-search-line"></i></Button>
+            </form>
         </div>
     </div>
-</th:block>
+</header>
 </body>
 </html>
