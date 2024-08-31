@@ -6,7 +6,8 @@ CREATE TABLE USERS (
                        password VARCHAR(255) NOT NULL,
                        phone VARCHAR(15),
                        address VARCHAR(400),
-                       role ENUM('customer', 'hotel_staff', 'admin') NOT NULL
+                       role ENUM('CUSTOMER', 'HOTEL_STAFF', 'ADMIN') NOT NULL,
+                       CONSTRAINT force_upper_case CHECK(BINARY role = UPPER(role))
 );
 
 CREATE TABLE HOTELS (
@@ -25,7 +26,9 @@ CREATE TABLE ROOMS (
                        price_per_night DECIMAL(10, 2),
                        status ENUM('available', 'booked', 'occupied', 'maintenance'),
                        description TEXT,
-                       FOREIGN KEY (hotel_id) REFERENCES HOTELS(id)
+                       FOREIGN KEY (hotel_id) REFERENCES HOTELS(id),
+                       CONSTRAINT force_upper_case CHECK(BINARY type = UPPER(type)),
+                       CONSTRAINT force_upper_case CHECK(BINARY status = UPPER(status))
 );
 
 ALTER TABLE USERS
@@ -55,7 +58,8 @@ CREATE TABLE BOOKINGS (
                           status ENUM('pending', 'confirmed', 'cancelled'),
                           total_amount DECIMAL(10, 2),
                           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                          FOREIGN KEY (customer_id) REFERENCES USERS(id)
+                          FOREIGN KEY (customer_id) REFERENCES USERS(id),
+                          CONSTRAINT force_upper_case CHECK(BINARY status = UPPER(status))
 );
 
 
@@ -78,5 +82,6 @@ CREATE TABLE PAYMENTS (
                           timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                           transaction_id VARCHAR(100) UNIQUE,
                           FOREIGN KEY (customer_id) REFERENCES USERS(id),
-                          FOREIGN KEY (booking_id) REFERENCES BOOKINGS(id)
+                          FOREIGN KEY (booking_id) REFERENCES BOOKINGS(id),
+                          CONSTRAINT force_upper_case CHECK(BINARY status = UPPER(status))
 );
