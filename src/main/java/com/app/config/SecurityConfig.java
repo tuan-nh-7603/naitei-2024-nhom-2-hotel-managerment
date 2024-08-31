@@ -1,5 +1,6 @@
 package com.app.config;
 
+import com.app.security.CustomAuthenticationSuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +18,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
+    private final UserDetailsService userDetailsService;
+    private final CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
     @Bean
     public static PasswordEncoder passwordEncoder() {
@@ -34,12 +37,15 @@ public class SecurityConfig {
                                 .requestMatchers("/", "/index", "/register/**").permitAll()
                                 .requestMatchers("/admin/**").hasRole("ADMIN")
                                 .requestMatchers("/customer/**").hasRole("CUSTOMER")
-                                .requestMatchers("/manager/**").hasRole("HOTEL_MANAGER")
+                                .requestMatchers("/manager/**").hasRole("HOTEL_STAFF")
                                 .anyRequest().authenticated())
                 .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
+                                .usernameParameter("email")
+                                .passwordParameter("password")
+                                .successHandler(customAuthenticationSuccessHandler)
                                 .permitAll())
                 .logout(
                         logout -> logout
