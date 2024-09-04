@@ -81,6 +81,17 @@ public class UserServiceImpl implements UserService {
         updateAuthentication(userDTO);
     }
 
+    @Override
+    public User getCurrentUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByEmail(username);
+    }
+
+    @Override
+    public int countUsers() {
+        return (int) userRepository.count();
+    }
+
     private void setFormattedDataToUser(User user, UserDTO userDTO) {
         user.setEmail(userDTO.getEmail());
         user.setName(formatText(userDTO.getName()));

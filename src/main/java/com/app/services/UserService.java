@@ -14,4 +14,8 @@ public interface UserService {
 
     void updateLoggedInUser(UserDTO userDTO);
 
+    User getCurrentUser();
+
+    public int countUsers();
+
 }
