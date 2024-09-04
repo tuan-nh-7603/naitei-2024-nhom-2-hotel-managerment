@@ -34,25 +34,25 @@ body{
     font-family: "Poppins", system-ui;
 }
 
-nav{
-    max-width: var(--max-width);
-    margin: auto;
-    padding: 2rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.nav_logo{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-dark);
-}
-.nav-links{
-    list-style: none;
-    display: flex;
-    align-content: center;
-    gap: 2rem;
-}
+/*nav{*/
+/*    max-width: var(--max-width);*/
+/*    margin: auto;*/
+/*    padding: 2rem 1rem;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*}*/
+/*.nav_logo{*/
+/*    font-size: 1.5rem;*/
+/*    font-weight: 600;*/
+/*    color: var(--text-dark);*/
+/*}*/
+/*.nav-links{*/
+/*    list-style: none;*/
+/*    display: flex;*/
+/*    align-content: center;*/
+/*    gap: 2rem;*/
+/*}*/
 .link a{
     font-weight: 500;
     color: var(--text-dark);

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/layout-main}">
+<head>
+    <title>Homepage</title>
+    <style>
+        body {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="content container pt-5">
+        <div class="row justify-content-center align-items-start">
+            <div class="col-12 text-center">
+                <h1 class="display-5 mb-5"><strong>"CUSTOMER LOGIN"</strong></h1>
+                <h2 class="display-5 mb-5">Page /customer/rooms: see all rooms</h2>
+
+
+            </div>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>
