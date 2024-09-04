@@ -11,9 +11,9 @@ public class RedirectUtil {
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
             if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
-                return "/admin/users";
+                return "/admin/dashboard";
             } else if (grantedAuthority.getAuthority().equals("ROLE_CUSTOMER")) {
-                return "/customer/rooms";
+                return "/customer/hotels";
             } else if (grantedAuthority.getAuthority().equals("ROLE_HOTEL_STAFF")) {
                 return "/manager/dashboard";
             }
