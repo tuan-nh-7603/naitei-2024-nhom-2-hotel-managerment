@@ -18,10 +18,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav ml-auto py-2 text-end">
                 <li class="nav-item" sec:authorize="isAnonymous()">
-                    <a class="nav-link" th:href="@{/register/manager}">Register for Manager</a>
+                    <a class="nav-link" th:href="@{/users/manager}">Register for Manager</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAnonymous()">
-                    <a class="nav-link" th:href="@{/register/customer}">Register for Customer</a>
+                    <a class="nav-link" th:href="@{/users/customer}">Register for Customer</a>
                 </li>
                 <li class="nav-item" sec:authorize="isAnonymous()">
                     <a class="nav-link" th:href="@{/login}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
@@ -32,7 +32,7 @@
                 </li>
                 <!-- Customer -->
                 <li class="nav-item" sec:authorize="hasRole('ROLE_CUSTOMER')">
-                    <a class="nav-link" th:href="@{/customer/rooms}">Rooms</a>
+                    <a class="nav-link" th:href="@{/customer/hotels}">Rooms</a>
                 </li>
                 <li class="nav-item" sec:authorize="hasRole('ROLE_HOTEL_STAFF')">
                     <a class="nav-link" th:href="@{/manager/dashboard}">Dashboard</a>

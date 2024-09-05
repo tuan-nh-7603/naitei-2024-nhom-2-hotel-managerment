@@ -23,6 +23,8 @@ ap# Compiled class file
 hs_err_pid*
 replay_pid*
 
+/target/
+
 .idea
 mvnw
 mvnw.cmd
