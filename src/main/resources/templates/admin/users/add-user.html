@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout/layout-main}">
+<head>
+  <title>Edit User</title>
+  <script src="/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<th:block layout:fragment="content">
+  <div class="content container pt-5">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <h2>Create User</h2>
+
+        <form th:action="@{/admin/users/}" th:object="${userDTO}" method="post">
+
+          <div class="form-group mb-3">
+            <label class="form-label" for="email">Email:</label>
+            <input class="form-control" id="email" type="email" th:field="*{email}"
+                   placeholder="Enter email address" autofocus>
+            <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label" for="password">Password:</label>
+            <input class="form-control" id="password" type="password" th:field="*{password}"
+                   placeholder="Enter password">
+            <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label" for="name">First Name:</label>
+            <input class="form-control" id="name" type="text" th:field="*{name}"
+                   placeholder="Enter first name">
+            <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+          </div>
+
+          <div class="form-group">
+            <label th:for="*{roleType}">Role</label>
+            <select class="form-control" th:field="*{roleType}">
+              <option th:each="role : ${T(com.app.constants.Role).values()}" th:value="${role}" th:text="${role}"></option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</th:block>
+
+</body>
+</html>

@@ -2,31 +2,142 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{/layout/layout-main}">
 <head>
-    <title>Homepage</title>
-    <style>
-        body {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .content {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-        }
-    </style>
+  <title>Admin Dashboard</title>
+  <style>
+  </style>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/admin/admin-dashboard.css" rel="stylesheet">
+
+
 </head>
 <body>
 <th:block layout:fragment="content">
-    <div class="content container pt-5">
-        <div class="row justify-content-center align-items-start">
-            <div class="col-12 text-center">
-                <h1 class="display-5 mb-5"><strong>"ADMIN LOGIN"</strong></h1>
-                <h2 class="display-5 mb-5">Page admin/dashboard</h2>
-                <a href="/admin/users">see all users</a>
+  <div class="content container pt-5">
+    <div class="row justify-content-center align-items-start">
+      <div class="col-12 text-center">
+        <h1 class="display-5 mb-5"><strong>ADMIN DASHBOARD</strong></h1>
+
+        <!-- Content Row -->
+        <div class="row">
+
+          <!-- Bookings -->
+          <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+              <a href="/bookings">
+              <div class="card-body">
+
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      Bookings</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${bookingCount}"> </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+                </a>
             </div>
+          </div>
+
+          <!-- Hotels  -->
+          <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+              <a href="/hotels">
+              <div class="card-body">
+
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                      Hotels</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${hotelCount}"></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+                </a>
+            </div>
+          </div>
+
+          <!-- Users -->
+          <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+              <a th:href="@{/admin/users}">
+              <div class="card-body">
+
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                      Users</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${userCount}"></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Pending Requests Card Example -->
+          <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                      Pending Requests</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- Earnings Overview and Revenue Sources -->
+        <div class="row">
+          <!-- Earnings Overview -->
+          <div class="col-xl-8 col-lg-7 ">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Bookings Overview</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="myAreaChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Revenue Sources -->
+          <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="chart-pie">
+                  <canvas id="myPieChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </th:block>
+
 </body>
 </html>

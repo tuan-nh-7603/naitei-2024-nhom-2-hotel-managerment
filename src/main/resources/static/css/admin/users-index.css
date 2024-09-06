@@ -1,0 +1,142 @@
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.content {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+}
+.alert {
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.alert .close {
+    font-size: 1rem;
+    color: red;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background-color: #f5c9d1;
+}
+
+.close {
+    padding: 0.5rem 1rem;
+    color: #000;
+}
+.close:hover {
+    color: #ff0000;
+}
+.fade {
+    transition: opacity 0.5s ease-in-out;
+}
+.alert span {
+    display: block;
+    text-align: center;
+}
+table {
+    margin-top: 15px;
+    width:100%;
+    overflow:hidden;
+    border-radius:10px;
+    position:relative;
+    border-collapse:collapse;
+    z-index:1;
+    color:gray;
+    white-space:nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Bóng đổ cho bảng */
+}
+.table-header{
+    background-color: #b3e5fc !important;
+    color: #1f1b1b;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+
+}
+tr:hover{
+    background-color: #76c3dc;
+}
+th.actions {
+    width: 150px;
+}
+.btn-action {
+    margin-right: 5px;
+}
+#add-user{
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #2e2929;
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 0.25rem;
+    text-decoration: none;
+}
+
+#refresh{
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #2b3137;
+    border: none;
+    background-color: #1cc88a;
+    border-radius: 0.25rem;
+    text-decoration: none;
+
+}
+#add-user:hover, #refresh:hover {
+    opacity: 0.8;
+}
+.pagination {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50; /* Màu nền thông báo */
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10000; /* Đảm bảo thông báo hiển thị trên tất cả phần tử khác */
+    display: flex;
+    align-items: center;
+}
+
+.notification i {
+    margin-right: 10px;
+}
+
+.notification .message {
+    flex-grow: 1;
+}
+
+.notification .close-btn {
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
+}

@@ -1,5 +1,6 @@
 package com.app.controllers;
 
+import com.app.exceptions.UserDeletedException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -25,8 +26,9 @@ public class BaseController {
         try {
             log.info("Registering user: {}", registrationDTO.getEmail());
             userService.saveUser(registrationDTO);
-        } catch (UsernameAlreadyExistsException e) {
-            result.rejectValue("email", "user.exists", e.getMessage());
+        }
+        catch (UserDeletedException | UsernameAlreadyExistsException ex){
+            result.rejectValue("email", "user.exists", ex.getMessage());
             return view;
         }
         return "redirect:/" + redirectUrl + "?success";
